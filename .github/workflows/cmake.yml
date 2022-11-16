@@ -15,8 +15,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      - run: cmake -S . -B ./build -DPATCH_VERSION=${{ github.run_number }} -DWITH_GTEST=ON
-      - run: cmake --build ./build --target tests
+      - run: cmake -S . -B ./build -DPATCH_VERSION=${{ github.run_number }} -DWITH_GTEST=OFF
       - run: cmake --build ./build --target package
       - name: Create Release
         id: create_release
